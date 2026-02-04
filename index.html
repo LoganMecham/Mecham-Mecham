@@ -1,289 +1,417 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Clean Accounting</title>
+  <meta charset="UTF-8">
+  <title>Ridgeline Accounting</title>
+  <style>
+    :root {
+      --ink: #0b1733;
+      --muted: #4b5563;
+      --primary: #0b3d91;
+      --primary-dark: #072a68;
+      --accent: #15b6c7;
+      --accent-dark: #0f8fa0;
+      --surface: #ffffff;
+      --surface-soft: #f5f7fb;
+      --border: #d9e2ef;
+      --hero: #081c3a;
+      --hero-soft: #0b2b5f;
+      --hero-glow: rgba(21, 182, 199, 0.25);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #e9f1fb 0%, #f5f9ff 45%, #ffffff 100%);
+      color: var(--ink);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    .page {
+      width: 100%;
+      padding: 28px 0 60px;
+    }
+
+    .container {
+      width: 980px;
+      margin: 0 auto;
+      background: transparent;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 20px 45px rgba(8, 28, 58, 0.12);
+    }
+
+    .section {
+      padding: 26px 28px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-left: 14px;
+    }
+
+    .nav a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--hero) 0%, var(--hero-soft) 70%, #0b3d91 100%);
+      color: #ffffff;
+      border-radius: 22px;
+      padding: 34px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: var(--hero-glow);
+      right: -60px;
+      top: -80px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin: 0 0 12px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 0 0 22px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(21, 182, 199, 0.22);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 600;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(15, 90, 110, 0.2);
+    }
+
+    .btn:hover {
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .hero-contact {
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .grid {
+      width: 100%;
+      border-spacing: 16px;
+    }
+
+    .service-card {
+      background: #f0f5fb;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .service-card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin: 0 0 10px;
+    }
+
+    .section-lead {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 10px;
+      text-align: left;
+    }
+
+    .pricing-table th {
+      background: #edf2f9;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .callout {
+      background: #e6f7fb;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #9edce6;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 
-<body bgcolor="#f6f8fb" text="#0f172a" link="#0b5fff" vlink="#0b5fff">
-  <center>
-    <table width="980" cellpadding="18" cellspacing="0" border="0">
-      <tr>
-        <td>
+<body>
+  <div class="page">
+    <div class="container">
+      <div class="card section">
+        <div class="header">
+          <div>
+            <div class="brand">Ridgeline Accounting</div>
+            <div class="subtitle">Confident finances for growing outdoor businesses</div>
+            <div class="subtitle">Utah accounting for outfitters and adventure brands</div>
+          </div>
+          <div class="nav">
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
 
-          <table width="100%" cellpadding="14" cellspacing="0" border="0" bgcolor="#ffffff">
-            <tr>
-              <td>
-                <font face="Arial, Helvetica, sans serif">
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td valign="top">
-                        <font size="6">Clean Accounting</font>
-                        <br>
-                        <font size="3">We make your books cleaner than chlorine</font>
-                        <br>
-                        <font size="2">Utah accounting for outdoor outfitters</font>
-                      </td>
-                      <td align="right" valign="top">
-                        <font size="2">
-                          <a href="#services">Services</a>
-                          &nbsp;&nbsp;
-                          <a href="#pricing">Pricing</a>
-                          &nbsp;&nbsp;
-                          <a href="#about">About</a>
-                          &nbsp;&nbsp;
-                          <a href="#contact">Contact</a>
-                        </font>
-                      </td>
-                    </tr>
-                  </table>
-                </font>
-              </td>
-            </tr>
-          </table>
+      <div style="height: 22px;"></div>
 
-          <br>
+      <div class="hero">
+        <div class="badge">Outfitter specialists</div>
+        <h1>Ridgeline clarity for every season.</h1>
+        <p>
+          If you run an outfitter business, your busy season is intense. I keep your bookkeeping,
+          payroll, and taxes organized so you can focus on customers and the outdoors.
+        </p>
+        <a class="btn" href="#contact">Schedule a call</a>
+        <div class="hero-contact">
+          Email: <a href="mailto:loganmecham@gmail.com" style="color:#ffffff;">loganmecham@gmail.com</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          Phone: <a href="tel:3852075261" style="color:#ffffff;">3852075261</a>
+        </div>
+      </div>
 
-          <table width="100%" cellpadding="22" cellspacing="0" border="0" bgcolor="#0b5fff">
-            <tr>
-              <td>
-                <font face="Arial, Helvetica, sans serif" color="#ffffff">
-                  <font size="6">Clean books. Clean taxes. Clear decisions.</font>
-                  <br><br>
-                  <font size="3">
-                    If you run an outfitter business, your busy season is intense.
-                    I keep your bookkeeping, payroll, and taxes organized so you can focus on customers and the outdoors.
-                  </font>
-                  <br><br>
+      <div style="height: 22px;"></div>
 
-                  <table cellpadding="12" cellspacing="0" border="0" bgcolor="#ffffff">
-                    <tr>
-                      <td>
-                        <font face="Arial, Helvetica, sans serif" color="#0f172a">
-                          <a href="#contact">Schedule a call</a>
-                        </font>
-                      </td>
-                    </tr>
-                  </table>
+      <div class="card section" id="services">
+        <div class="section-title">Services</div>
+        <div class="section-lead">Reliable monthly support designed for seasonal businesses.</div>
+        <table class="grid" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="50%">
+              <div class="service-card">
+                <h3>Bookkeeping</h3>
+                <p>Monthly reconciliations, clean financials, and fast answers built for your busy peaks.</p>
+              </div>
+            </td>
+            <td width="50%">
+              <div class="service-card">
+                <h3>Taxes</h3>
+                <p>Tax prep plus year-round planning so there are no surprises in April.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="50%">
+              <div class="service-card">
+                <h3>Payroll</h3>
+                <p>Simple payroll support with clear monthly pricing and timely filings.</p>
+              </div>
+            </td>
+            <td width="50%">
+              <div class="service-card">
+                <h3>Consulting</h3>
+                <p>Cash flow, margins, pricing, and quick decision support for owners.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="50%">
+              <div class="service-card">
+                <h3>Entity setup</h3>
+                <p>LLC setup support and S corp election guidance when it makes sense.</p>
+              </div>
+            </td>
+            <td width="50%">
+              <div class="service-card">
+                <h3>Cleanup projects</h3>
+                <p>Behind on books? We get you caught up and keep it clean.</p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-                  <br>
+      <div style="height: 22px;"></div>
 
-                  <font size="2">
-                    Email: <a href="mailto:loganmecham@gmail.com">loganmecham@gmail.com</a>
-                    &nbsp;&nbsp;
-                    Phone: <a href="tel:3852075261">3852075261</a>
-                  </font>
-                </font>
-              </td>
-            </tr>
-          </table>
+      <div class="card section" id="pricing">
+        <div class="section-title">Pricing</div>
+        <div class="section-lead">Clean pricing for seasonal businesses. One monthly base, plus add-ons if you have W-2 employees.</div>
+        <table class="pricing-table">
+          <tr>
+            <th width="45%">Package</th>
+            <th width="25%">Monthly price</th>
+            <th width="30%">Best fit</th>
+          </tr>
+          <tr>
+            <td>Bookkeeping + contractor payroll</td>
+            <td>$200</td>
+            <td>S corp with contractors only (owner is the only employee)</td>
+          </tr>
+        </table>
 
-          <br>
+        <div style="height: 20px;"></div>
 
-          <table width="100%" cellpadding="22" cellspacing="0" border="0" bgcolor="#ffffff">
-            <tr>
-              <td>
-                <font face="Arial, Helvetica, sans serif">
-                  <font size="5" id="services">Services</font>
-                  <br><br>
+        <table class="pricing-table">
+          <tr>
+            <th width="60%">Add on</th>
+            <th width="40%">Price</th>
+          </tr>
+          <tr>
+            <td>W-2 payroll (if you have employees)</td>
+            <td>$15 per employee per month</td>
+          </tr>
+          <tr>
+            <td>Additional contractor payments</td>
+            <td>$5 per contractor per month</td>
+          </tr>
+          <tr>
+            <td>Individual tax return</td>
+            <td>Starts at $300</td>
+          </tr>
+          <tr>
+            <td>Business tax return</td>
+            <td>Starts at $650</td>
+          </tr>
+          <tr>
+            <td>Consulting and tax planning</td>
+            <td>$150 per hour or $250 per month ongoing</td>
+          </tr>
+          <tr>
+            <td>LLC setup package</td>
+            <td>$300 plus state fees</td>
+          </tr>
+          <tr>
+            <td>S corp election and setup support</td>
+            <td>$500 plus state fees</td>
+          </tr>
+        </table>
+      </div>
 
-                  <table width="100%" cellpadding="14" cellspacing="0" border="0">
-                    <tr>
-                      <td width="50%" valign="top" bgcolor="#f6f8fb">
-                        <font size="4">Bookkeeping</font>
-                        <br>
-                        <font size="2">
-                          Monthly reconciliations, clean financials, and fast answers.
-                          Built for seasonal businesses with busy peaks.
-                        </font>
-                      </td>
-                      <td width="50%" valign="top" bgcolor="#f6f8fb">
-                        <font size="4">Taxes</font>
-                        <br>
-                        <font size="2">
-                          Tax prep plus year round planning so there are no surprises.
-                        </font>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td width="50%" valign="top" bgcolor="#f6f8fb">
-                        <font size="4">Payroll</font>
-                        <br>
-                        <font size="2">
-                          Simple payroll support with clear monthly pricing.
-                        </font>
-                      </td>
-                      <td width="50%" valign="top" bgcolor="#f6f8fb">
-                        <font size="4">Consulting</font>
-                        <br>
-                        <font size="2">
-                          Cash flow, margins, pricing, and quick decision support.
-                        </font>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td width="50%" valign="top" bgcolor="#f6f8fb">
-                        <font size="4">Entity setup</font>
-                        <br>
-                        <font size="2">
-                          LLC setup support and S corp election guidance when it makes sense.
-                        </font>
-                      </td>
-                      <td width="50%" valign="top" bgcolor="#f6f8fb">
-                        <font size="4">Cleanup projects</font>
-                        <br>
-                        <font size="2">
-                          Behind on books. We will get you caught up and make it stay clean.
-                        </font>
-                      </td>
-                    </tr>
-                  </table>
+      <div style="height: 22px;"></div>
 
-                </font>
-              </td>
-            </tr>
-          </table>
+      <div class="card section" id="about">
+        <div class="section-title">About</div>
+        <div class="about">
+          <div>
+            <div class="section-lead">
+              I am Logan Mecham. I build clean systems for owners who want accounting to feel simple.
+              If you run an outdoor outfitter, we will keep your books ready for tax time and your decisions clear all year.
+            </div>
+            <div class="callout">
+              <strong>Credentials</strong><br>
+              Enrolled Agent in progress<br>
+              Bachelors degree in accounting
+            </div>
+          </div>
+          <div class="callout" style="background:#e9f2ff; border-color:#9bb7e1;">
+            <strong>What you can expect</strong><br>
+            Fast monthly closes, proactive tax planning, and a steady partner who understands seasonality.
+          </div>
+        </div>
+      </div>
 
-          <br>
+      <div style="height: 22px;"></div>
 
-          <table width="100%" cellpadding="22" cellspacing="0" border="0" bgcolor="#ffffff">
-            <tr>
-              <td>
-                <font face="Arial, Helvetica, sans serif">
-                  <font size="5" id="pricing">Pricing</font>
-                  <br><br>
-                  <font size="2">
-                    Simple packages. Clear monthly cost. Final quotes depend on volume and complexity.
-                  </font>
-                  <br><br>
+      <div class="card section" id="contact">
+        <div class="section-title">Contact</div>
+        <div class="section-lead">Fastest next step: email or text with your business type, monthly transaction count, and team size.</div>
+        <div style="font-size: 14px; color: var(--ink); line-height: 1.8;">
+          Email: <a href="mailto:loganmecham@gmail.com">loganmecham@gmail.com</a><br>
+          Phone: <a href="tel:3852075261">3852075261</a><br>
+          Location: Utah, United States
+        </div>
+      </div>
 
-                  <table width="100%" cellpadding="10" cellspacing="0" border="1">
-                    <tr bgcolor="#f6f8fb">
-                      <td width="34%"><font face="Arial, Helvetica, sans serif">Package</font></td>
-                      <td width="33%"><font face="Arial, Helvetica, sans serif">Monthly price</font></td>
-                      <td width="33%"><font face="Arial, Helvetica, sans serif">Best fit</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">Clear Water Bookkeeping</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">$399</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">Low volume and simple needs</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">Deep Clean Bookkeeping</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">$699</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">Growing outfitters and more transactions</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">Crystal Clear Bookkeeping</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">$1199</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">Higher volume and seasonal spikes</font></td>
-                    </tr>
-                  </table>
-
-                  <br>
-
-                  <table width="100%" cellpadding="10" cellspacing="0" border="1">
-                    <tr bgcolor="#f6f8fb">
-                      <td width="50%"><font face="Arial, Helvetica, sans serif">Add on</font></td>
-                      <td width="50%"><font face="Arial, Helvetica, sans serif">Price</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">Payroll add on</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">$60 per month plus $9 per employee per month</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">Contractor only payroll</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">$9 per contractor per month</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">Individual tax return</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">Starts at $395</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">Business tax return</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">Starts at $850</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">Consulting and tax planning</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">$175 per hour or $300 per month ongoing</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">LLC setup package</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">$350 plus state fees</font></td>
-                    </tr>
-                    <tr>
-                      <td><font face="Arial, Helvetica, sans serif">S corp election and setup support</font></td>
-                      <td><font face="Arial, Helvetica, sans serif">$600 plus state fees</font></td>
-                    </tr>
-                  </table>
-
-                </font>
-              </td>
-            </tr>
-          </table>
-
-          <br>
-
-          <table width="100%" cellpadding="22" cellspacing="0" border="0" bgcolor="#ffffff">
-            <tr>
-              <td>
-                <font face="Arial, Helvetica, sans serif">
-                  <font size="5" id="about">About</font>
-                  <br><br>
-                  <font size="2">
-                    I am Logan Mecham. I build clean systems for owners who want accounting to feel simple.
-                    <br><br>
-                    Credentials
-                    <br>
-                    Enrolled Agent in progress
-                    <br>
-                    Bachelors degree in accounting
-                    <br><br>
-                    If you run an outdoor outfitter, we will keep your books ready for tax time and your decisions clear all year.
-                  </font>
-                </font>
-              </td>
-            </tr>
-          </table>
-
-          <br>
-
-          <table width="100%" cellpadding="22" cellspacing="0" border="0" bgcolor="#ffffff">
-            <tr>
-              <td>
-                <font face="Arial, Helvetica, sans serif">
-                  <font size="5" id="contact">Contact</font>
-                  <br><br>
-                  <font size="2">
-                    Email: <a href="mailto:loganmecham@gmail.com">loganmecham@gmail.com</a>
-                    <br>
-                    Phone: <a href="tel:3852075261">3852075261</a>
-                    <br>
-                    Location: Utah, United States
-                    <br><br>
-                    Fastest next step
-                    <br>
-                    Email or text me and tell me your business type, how many monthly transactions you think you have, and how many people you pay.
-                  </font>
-                </font>
-              </td>
-            </tr>
-          </table>
-
-          <br>
-
-          <table width="100%" cellpadding="14" cellspacing="0" border="0">
-            <tr>
-              <td align="center">
-                <font face="Arial, Helvetica, sans serif" size="2" color="#475569">
-                  Copyright 2026 Clean Accounting. All rights reserved.
-                </font>
-              </td>
-            </tr>
-          </table>
-
-        </td>
-      </tr>
-    </table>
-  </center>
+      <div class="footer">Copyright 2026 Ridgeline Accounting. All rights reserved.</div>
+    </div>
+  </div>
 </body>
 </html>
