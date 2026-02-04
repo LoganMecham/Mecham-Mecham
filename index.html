@@ -2,27 +2,25 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Ridgeline Accounting</title>
+  <title>Clean Accounting</title>
   <style>
     :root {
-      --ink: #0b1733;
-      --muted: #4b5563;
-      --primary: #0b3d91;
-      --primary-dark: #072a68;
-      --accent: #15b6c7;
-      --accent-dark: #0f8fa0;
+      --ink: #0f172a;
+      --muted: #475569;
+      --primary: #1d4ed8;
+      --primary-dark: #1e3a8a;
+      --accent: #14b8a6;
       --surface: #ffffff;
-      --surface-soft: #f5f7fb;
-      --border: #d9e2ef;
-      --hero: #081c3a;
-      --hero-soft: #0b2b5f;
-      --hero-glow: rgba(21, 182, 199, 0.25);
+      --surface-soft: #f1f5f9;
+      --border: #e2e8f0;
+      --hero: #0b1f4b;
+      --hero-soft: #12306b;
     }
 
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(180deg, #e9f1fb 0%, #f5f9ff 45%, #ffffff 100%);
+      background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 45%, #ffffff 100%);
       color: var(--ink);
     }
 
@@ -50,7 +48,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
-      box-shadow: 0 20px 45px rgba(8, 28, 58, 0.12);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
     }
 
     .section {
@@ -87,7 +85,7 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--hero) 0%, var(--hero-soft) 70%, #0b3d91 100%);
+      background: linear-gradient(135deg, var(--hero) 0%, var(--hero-soft) 100%);
       color: #ffffff;
       border-radius: 22px;
       padding: 34px 36px;
@@ -101,7 +99,7 @@
       width: 220px;
       height: 220px;
       border-radius: 50%;
-      background: var(--hero-glow);
+      background: rgba(20, 184, 166, 0.2);
       right: -60px;
       top: -80px;
     }
@@ -122,7 +120,7 @@
       display: inline-block;
       padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(21, 182, 199, 0.22);
+      background: rgba(255, 255, 255, 0.15);
       font-size: 12px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -132,16 +130,10 @@
     .btn {
       display: inline-block;
       padding: 10px 18px;
-      background: var(--accent);
-      color: #ffffff;
+      background: #ffffff;
+      color: var(--hero);
       font-weight: 600;
       border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(15, 90, 110, 0.2);
-    }
-
-    .btn:hover {
-      background: var(--accent-dark);
-      color: #ffffff;
     }
 
     .hero-contact {
@@ -156,7 +148,7 @@
     }
 
     .service-card {
-      background: #f0f5fb;
+      background: var(--surface-soft);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 16px;
@@ -199,7 +191,7 @@
     }
 
     .pricing-table th {
-      background: #edf2f9;
+      background: var(--surface-soft);
       color: var(--muted);
       font-weight: 600;
       text-transform: uppercase;
@@ -215,11 +207,11 @@
     }
 
     .callout {
-      background: #e6f7fb;
+      background: #ecfeff;
       border-radius: 12px;
       padding: 16px;
-      border: 1px solid #9edce6;
-      color: var(--ink);
+      border: 1px solid #a5f3fc;
+      color: #0f172a;
       font-size: 14px;
     }
 
@@ -238,9 +230,9 @@
       <div class="card section">
         <div class="header">
           <div>
-            <div class="brand">Ridgeline Accounting</div>
-            <div class="subtitle">Confident finances for growing outdoor businesses</div>
-            <div class="subtitle">Utah accounting for outfitters and adventure brands</div>
+            <div class="brand">Clean Accounting</div>
+            <div class="subtitle">We make your books cleaner than chlorine</div>
+            <div class="subtitle">Utah accounting for outdoor outfitters</div>
           </div>
           <div class="nav">
             <a href="#services">Services</a>
@@ -255,7 +247,7 @@
 
       <div class="hero">
         <div class="badge">Outfitter specialists</div>
-        <h1>Ridgeline clarity for every season.</h1>
+        <h1>Clean books. Clean taxes. Clear decisions.</h1>
         <p>
           If you run an outfitter business, your busy season is intense. I keep your bookkeeping,
           payroll, and taxes organized so you can focus on customers and the outdoors.
@@ -323,17 +315,27 @@
 
       <div class="card section" id="pricing">
         <div class="section-title">Pricing</div>
-        <div class="section-lead">Clean pricing for seasonal businesses. One monthly base, plus add-ons if you have W-2 employees.</div>
+        <div class="section-lead">Simple packages. Clear monthly cost. Final quotes depend on volume and complexity.</div>
         <table class="pricing-table">
           <tr>
-            <th width="45%">Package</th>
-            <th width="25%">Monthly price</th>
-            <th width="30%">Best fit</th>
+            <th width="34%">Package</th>
+            <th width="33%">Monthly price</th>
+            <th width="33%">Best fit</th>
           </tr>
           <tr>
-            <td>Bookkeeping + contractor payroll</td>
-            <td>$200</td>
-            <td>S corp with contractors only (owner is the only employee)</td>
+            <td>Clear Water Bookkeeping</td>
+            <td>$399</td>
+            <td>Low volume and simple needs</td>
+          </tr>
+          <tr>
+            <td>Deep Clean Bookkeeping</td>
+            <td>$699</td>
+            <td>Growing outfitters and more transactions</td>
+          </tr>
+          <tr>
+            <td>Crystal Clear Bookkeeping</td>
+            <td>$1199</td>
+            <td>Higher volume and seasonal spikes</td>
           </tr>
         </table>
 
@@ -341,36 +343,36 @@
 
         <table class="pricing-table">
           <tr>
-            <th width="60%">Add on</th>
-            <th width="40%">Price</th>
+            <th width="50%">Add on</th>
+            <th width="50%">Price</th>
           </tr>
           <tr>
-            <td>W-2 payroll (if you have employees)</td>
-            <td>$15 per employee per month</td>
+            <td>Payroll add on</td>
+            <td>$60 per month plus $9 per employee per month</td>
           </tr>
           <tr>
-            <td>Additional contractor payments</td>
-            <td>$5 per contractor per month</td>
+            <td>Contractor only payroll</td>
+            <td>$9 per contractor per month</td>
           </tr>
           <tr>
             <td>Individual tax return</td>
-            <td>Starts at $300</td>
+            <td>Starts at $395</td>
           </tr>
           <tr>
             <td>Business tax return</td>
-            <td>Starts at $650</td>
+            <td>Starts at $850</td>
           </tr>
           <tr>
             <td>Consulting and tax planning</td>
-            <td>$150 per hour or $250 per month ongoing</td>
+            <td>$175 per hour or $300 per month ongoing</td>
           </tr>
           <tr>
             <td>LLC setup package</td>
-            <td>$300 plus state fees</td>
+            <td>$350 plus state fees</td>
           </tr>
           <tr>
             <td>S corp election and setup support</td>
-            <td>$500 plus state fees</td>
+            <td>$600 plus state fees</td>
           </tr>
         </table>
       </div>
@@ -391,7 +393,7 @@
               Bachelors degree in accounting
             </div>
           </div>
-          <div class="callout" style="background:#e9f2ff; border-color:#9bb7e1;">
+          <div class="callout" style="background:#ecfdf5; border-color:#6ee7b7;">
             <strong>What you can expect</strong><br>
             Fast monthly closes, proactive tax planning, and a steady partner who understands seasonality.
           </div>
@@ -410,7 +412,7 @@
         </div>
       </div>
 
-      <div class="footer">Copyright 2026 Ridgeline Accounting. All rights reserved.</div>
+      <div class="footer">Copyright 2026 Clean Accounting. All rights reserved.</div>
     </div>
   </div>
 </body>
